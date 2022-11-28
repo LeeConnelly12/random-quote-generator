@@ -11,12 +11,13 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 	w.Header().Set("Content-Type", "application/json")
 
-	var quotes [2]string
+	var quotes [3]string
 	quotes[0] = "First quote."
 	quotes[1] = "Second quote."
+	quotes[2] = "Third quote."
 
 	min := 0
-	max := 2
+	max := 3
 	randomIndex := rand.Intn(max-min) + min
 
 	resp := make(map[string]string)
