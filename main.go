@@ -25,16 +25,16 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 	w.Header().Set("Content-Type", "application/json")
 
-	resp := make(map[string]string)
-	resp["quote"] = getRandomQuote()
+	response := make(map[string]string)
+	response["quote"] = getRandomQuote()
 
-	jsonResp, err := json.Marshal(resp)
+	jsonResponse, err := json.Marshal(response)
 
 	if err != nil {
 		log.Fatalf("Error happened in JSON marshal. Err: %s", err)
 	}
 
-	w.Write(jsonResp)
+	w.Write(jsonResponse)
 }
 
 func handleRequests() {
