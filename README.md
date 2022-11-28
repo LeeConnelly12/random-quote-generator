@@ -19,7 +19,7 @@ docker build -t random-quote-generator .
 Run the container
 
 ```
-docker run -p 3000:3000 -d random-quote-generator
+docker run --rm -p 3000:3000 -d random-quote-generator
 ```
 
 View the quote in your browser
