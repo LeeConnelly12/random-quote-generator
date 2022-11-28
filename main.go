@@ -8,10 +8,11 @@ import (
 )
 
 func getRandomQuote() string {
-	var quotes [3]string
-	quotes[0] = "First quote."
-	quotes[1] = "Second quote."
-	quotes[2] = "Third quote."
+	quotes := [3]string{
+		"First quote.",
+		"Second quote.",
+		"Third quote.",
+	}
 
 	min := 0
 	max := len(quotes)
