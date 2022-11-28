@@ -17,7 +17,7 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 	quotes[2] = "Third quote."
 
 	min := 0
-	max := 3
+	max := len(quotes)
 	randomIndex := rand.Intn(max-min) + min
 
 	resp := make(map[string]string)
