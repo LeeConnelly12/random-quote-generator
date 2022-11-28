@@ -7,10 +7,7 @@ import (
 	"net/http"
 )
 
-func homePage(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusCreated)
-	w.Header().Set("Content-Type", "application/json")
-
+func getRandomQuote() string {
 	var quotes [3]string
 	quotes[0] = "First quote."
 	quotes[1] = "Second quote."
@@ -18,10 +15,17 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 
 	min := 0
 	max := len(quotes)
-	randomIndex := rand.Intn(max-min) + min
+	index := rand.Intn(max-min) + min
+
+	return quotes[index]
+}
+
+func homePage(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusCreated)
+	w.Header().Set("Content-Type", "application/json")
 
 	resp := make(map[string]string)
-	resp["quote"] = quotes[randomIndex]
+	resp["quote"] = getRandomQuote()
 
 	jsonResp, err := json.Marshal(resp)
 
